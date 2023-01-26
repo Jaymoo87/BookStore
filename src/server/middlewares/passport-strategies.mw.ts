@@ -2,8 +2,6 @@ import * as passport from "passport";
 import * as PassportLocal from "passport-local";
 import * as PassportJWT from "passport-jwt";
 
-
-
 import { UserTable } from "../types";
 import { Payload } from "../types";
 import { Application } from "express";
@@ -26,10 +24,10 @@ export function configurePassport(app: Application) {
       },
       async (email, password, done) => {
         try {
-          const [BSuserFound] = await BSuser.find("email", email);
-          if (BSuserFound && compareHash(password, BSuserFound.password!)) {
-            delete BSuserFound.password;
-            done(null, BSuserFound);
+          const [userFound] = await user.find("email", email);
+          if (userFound && compareHash(password, userFound.password!)) {
+            delete userFound.password;
+            done(null, userFound);
             return;
           } else {
             done(null, false, { message: "invalid creds... get your fingers right" });

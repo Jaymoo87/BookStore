@@ -1,5 +1,5 @@
 export interface Payload {
-  userid: number;
+  id: number;
   email: string;
   role: 1;
 }
@@ -11,8 +11,8 @@ declare global {
 }
 
 export interface UserTable {
-  id?: number;
-  email?: string;
+  id: number;
+  email: string;
   password?: string;
   created_at?: Date;
 }
