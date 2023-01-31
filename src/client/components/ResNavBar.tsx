@@ -12,6 +12,9 @@ const ResNavBar = () => {
         <Nav.Link href="/books" className="mx-5 text-primary">
           Book Library
         </Nav.Link>
+        <Nav.Link href="/books/new" className="mx-5 text-primary">
+          New Book
+        </Nav.Link>
         <Nav.Link href="/register" className="mx-5 text-primary">
           Register
         </Nav.Link>

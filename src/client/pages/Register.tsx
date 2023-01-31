@@ -12,10 +12,10 @@ const Register = () => {
   const handleRegistration = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     POST<{ token: string; message: string }>("/auth/register", { email, password, name }).then((data) => {
-      const token = data!.token;
+      //   const token = data!.token;
       SwalSuccess("Registered");
-      localStorage.setItem(TOKEN_KEY, token);
-      nav("/login");
+      localStorage.setItem(TOKEN_KEY, data!.token);
+      nav("/books");
     });
   };
 
