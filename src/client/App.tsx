@@ -2,10 +2,11 @@ import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ResNavBar from "./components/ResNavBar";
-import BookLibrary from "./pages/BookLibrary";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+import BookLibrary from "./pages/BookLibrary";
 import OneBook from "./pages/OneBook";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 /* HOOK REACT EXAMPLE */
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
       <ResNavBar />
       <Routes>
         <Route path="" element={<Home />}></Route>
-        <Route path="/register" element={<>Register</>}></Route>
+        <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/books" element={<BookLibrary />}></Route>
         <Route path="/books/:id" element={<OneBook />}></Route>

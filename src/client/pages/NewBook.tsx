@@ -58,6 +58,15 @@ const NewBook = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+        <label className="text-light">Author</label>
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Book Author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+        <label className="text-light">Genre</label>
       </div>
     </div>
   );
