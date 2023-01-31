@@ -29,6 +29,7 @@ const Login = () => {
               Email:
             </label>
             <input
+              autoComplete="email"
               type="email"
               className="form-control mb-2"
               value={email}
@@ -38,6 +39,7 @@ const Login = () => {
               Password:
             </label>
             <input
+              autoComplete="password"
               type="password"
               className="form-control mb-2"
               value={password}

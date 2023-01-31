@@ -23,7 +23,7 @@ const NewBook = () => {
         setCategories(data);
         setOptions(data.map((c: ICategory) => ({ value: c.id!, lavle: c.name! })));
       });
-  });
+  }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -40,15 +40,15 @@ const NewBook = () => {
     try {
       POST("/api/books", thisNewBook);
       SwalSuccess("New Book! get tuh readin"!);
-      nav("/books");
     } catch (error) {
       SwalError(error);
     }
+    nav("/books");
   };
 
   return (
     <div className="container d-flex justify-content-center mt-5">
-      <div className="form-group p-2 car bg-primary d-flex col-lf-4 col-md-6 col-sm-12">
+      <div className="form-group p-2 card bg-primary d-flex col-lf-4 col-md-6 col-sm-12">
         <h3 className="card-title text-light d-flex justify-content-center">New Book</h3>
         <label className="text-light">Title</label>
         <input
@@ -67,6 +67,27 @@ const NewBook = () => {
           onChange={(e) => setAuthor(e.target.value)}
         />
         <label className="text-light">Genre</label>
+        <select value={categoryid} className="form-control" onChange={(e) => setCategoryid(Number(e.target.value))}>
+          <option value={0}>Select a Genre</option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.id}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
+        <label className="text-light">Author</label>
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Book Price"
+          value={price}
+          onChange={(e) => setPrice(Number(e.target.value))}
+        />
+        <div className="d-flex justify-content-end">
+          <button className="btn btn-primary rounded my-3" onClick={handleClick}>
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

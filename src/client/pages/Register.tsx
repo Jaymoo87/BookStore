@@ -24,7 +24,7 @@ const Register = () => {
       <section className="row justify-content-center mt-4">
         <div className="col-12 col-md-4">
           <form action="" className="form-group p-4 rounded-lg bg-primary rounded shadow-lg">
-            <h1 className="text-center text-dark">Log In</h1>
+            <h1 className="text-center text-dark">Register</h1>
             <label htmlFor="email" className="text-dark">
               Name:
             </label>
