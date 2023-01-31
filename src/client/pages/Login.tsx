@@ -44,7 +44,9 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="d-flex justify-content-end">
-              <button className="btn btn-dark" onClick={handleLogin}></button>
+              <button className="btn btn-dark" onClick={handleLogin}>
+                Login
+              </button>
             </div>
           </form>
         </div>
