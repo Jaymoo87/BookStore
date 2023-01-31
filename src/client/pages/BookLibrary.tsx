@@ -18,7 +18,7 @@ const BookLibrary = () => {
     <div className="container">
       <div className="row">
         {books.map((book) => (
-          <div className="p-2 card bg-primary d-flex col-lg-4 col-md-6 col-sm-12">
+          <div key={`book-key-${book.id}`} className="p-2 card bg-primary d-flex col-lg-4 col-md-6 col-sm-12">
             <div className="card-body shadow-lg">
               <h2>Title: {book.title}</h2>
               <h4>Author: {book.author}</h4>
