@@ -1,7 +1,6 @@
 export interface Payload {
   id: number;
   email: string;
-  role: 1;
 }
 
 declare global {
