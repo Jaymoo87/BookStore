@@ -23,8 +23,10 @@ const BookLibrary = () => {
               <h2>Title: {book.title}</h2>
               <h4>Author: {book.author}</h4>
               <h2>Genre: {book.category}</h2>
-              <h2>Price: {book.price}</h2>
-              <Link to={`/books/${book.id}`}></Link>
+              <h2>Price: ${book.price}</h2>
+              <Link to={`/books/${book.id}`} className="btn btn-dark">
+                Look At This Book
+              </Link>
             </div>
           </div>
         ))}

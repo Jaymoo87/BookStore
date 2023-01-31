@@ -3,6 +3,7 @@ import { IBooks } from "../../types";
 
 export const getAllBooks = async () =>
   Query<IBooks[]>("SELECT b.*, c.name as category FROM books b JOIN categories c ON b.categoryid=c.id");
+
 export const getOneBook = async (id: number) =>
   Query<IBooks>("SELECT b.*, c.name as category FROM books b JOIN categories c ON b.categoryid=c.id WHERE b.id=?", [
     id,

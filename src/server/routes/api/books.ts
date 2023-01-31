@@ -17,8 +17,8 @@ bookRouter.get("/", async (req, res) => {
 bookRouter.get("/:id", async (req, res) => {
   let id = Number(req.params.id);
   try {
-    const books = (await db.books.getOneBook(id))[0];
-    res.json(books);
+    const book = (await db.books.getOneBook(id))[0];
+    res.json(book);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Server on Fire" });
