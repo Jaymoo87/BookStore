@@ -1,9 +1,9 @@
-import * as express from 'express';
+import { Router } from "express";
 
-const router = express.Router();
+import apiRouter from "./api";
 
-router.get('/api/hello', (req, res, next) => {
-    res.json('World');
-});
+const indexRouter = Router();
 
-export default router;
+indexRouter.use("/api", apiRouter);
+
+export default indexRouter;

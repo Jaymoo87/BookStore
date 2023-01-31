@@ -21,3 +21,17 @@ export interface MysqlResponse {
   affectedRows?: number;
   insertID?: number;
 }
+
+export interface IBooks {
+  id: number;
+  categoryid: number;
+  category?: string;
+  title: string;
+  author: string;
+  price: number;
+  _created?: Date | string;
+}
+export interface ICategory {
+  id: number;
+  name: string;
+}
