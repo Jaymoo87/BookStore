@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NewBook from "./pages/NewBook";
 import EditBook from "./pages/EditBook";
+import PrivateRoute from "./components/PrivateRoute";
 
 /* HOOK REACT EXAMPLE */
 const App = () => {
@@ -21,8 +22,10 @@ const App = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/books" element={<BookLibrary />}></Route>
         <Route path="/books/:id" element={<OneBook />}></Route>
-        <Route path="/books/:id/update" element={<EditBook />}></Route>
-        <Route path="/books/new" element={<NewBook />}></Route>
+        <Route element={<PrivateRoute />}>
+          <Route path="/books/:id/update" element={<EditBook />}></Route>
+          <Route path="/books/new" element={<NewBook />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );

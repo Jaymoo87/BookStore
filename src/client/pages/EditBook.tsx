@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { IBooks, ICategory } from "../../server/types";
-import { GET, PUT } from "../services/api-service";
+import { DELETE, GET, PUT } from "../services/api-service";
 import { SwalError, SwalSuccess } from "../services/swal-error-handler";
 
 const EditBook = () => {
@@ -65,6 +65,22 @@ const EditBook = () => {
     }
   };
 
+  const handleDeleteBook = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const book = {
+      title,
+      author,
+      categoryid,
+      price,
+    };
+    try {
+      DELETE(`/api/books/${id}`, book);
+      SwalSuccess("Deleted");
+      nav("/books");
+    } catch (error) {
+      SwalError(error);
+    }
+  };
   return (
     <div className="container d-flex justify-content-center mt-5">
       <div className="form-group p-2 card bg-primary d-flex col-lg-4 col-md-6 col-sm-12">
@@ -87,7 +103,7 @@ const EditBook = () => {
         ></input>
         <label className="text-light">Category</label>
         <select className="form-control" value={categoryid} onChange={(e) => setCategoryId(Number(e.target.value))}>
-          <option value={0}></option>
+          <option value={0}>Select A Genre</option>
           {categories.map((cat: ICategory) => (
             <option key={cat.id} value={cat.id}>
               {cat.name}
@@ -106,6 +122,11 @@ const EditBook = () => {
           <button value="Submit New Book" className="my-3 btn btn-primary rounded " onClick={handleClick}>
             Submit Edit
           </button>
+          <div className="d-flex justify-content-end">
+            <button value="Submit New Book" className="my-3 btn btn-primary rounded " onClick={handleDeleteBook}>
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>
