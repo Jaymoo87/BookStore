@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
     POST<{ token: string; message: string }>("/auth/register", { email, password, name }).then((data) => {
       const token = data!.token;
-      SwalSuccess("Logged in");
+      SwalSuccess("Registered");
       localStorage.setItem(TOKEN_KEY, token);
       nav("/login");
     });
